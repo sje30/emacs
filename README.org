@@ -52,7 +52,8 @@ Example: show all files that are currently registered
 
    git ls-files --exclude-standard --other
 
-
+*** references
+https://github.com/magit/magit/issues/4054
 
 * noweb
 
