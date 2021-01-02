@@ -50,7 +50,7 @@ Example: find all the PDFs and open in dired.
 
 Example: show all files that are currently registered
 
-   git ls-files --exclude-standard --other
+   git ls-files --exclude-standard --other | dired
 
 *** references
 https://github.com/magit/magit/issues/4054
