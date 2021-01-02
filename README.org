@@ -1,0 +1,71 @@
+* Notes about Emacs
+
+** dired -- Create a dired buffer of files listed on stdin.
+
+
+Often I find I would like to create a list of files using some unix
+command and have a dired buffer containing those files.  This short
+script does that.  It creates a temporary file .my-dired.el which is
+not deleted by default for debugging purposes.
+
+#+begin_src perl :noweb yes :tangle ~/langs/bin/perl/dired :tangle-mode (identity #o755)
+#!/usr/bin/perl
+# this file generated from <<filename()>>
+use Cwd qw(getcwd);
+
+$elfile = ".my-dired.el";
+    
+## (dired-other-window '("my dired" "~" "txt" "~/txt/add.tex" ".emacs" "foreign.pdf"))
+open(OUT, '>', $elfile) or die $!;
+
+$buffer = "my-dired";  
+$dir = getcwd();
+
+
+## Can use `dired' or `dired-other-window'.
+
+print OUT "(dired '(\"$buffer\" \"$dir\"\n";
+
+while(<>) {
+    chomp;
+    print OUT "\"$_\"\n";
+}
+
+print OUT "))\n";
+
+close(OUT);
+
+system("emacsclient -n -e '(load-file \"$elfile\")'");
+
+##unlink($elfile);
+
+
+
+#+end_src
+
+
+Example: find all the PDFs and open in dired.
+
+   fd -x pdf | dired
+
+Example: show all files that are currently registered
+
+   git ls-files --exclude-standard --other
+
+
+
+* noweb
+
+Taken from https://www.reddit.com/r/orgmode/comments/kmpfpf/adding_tangle_results_to_tangle_file/
+
+#+NAME: filename 
+#+BEGIN_SRC emacs-lisp :tangle no
+(buffer-file-name)
+#+END_SRC
+
+#+RESULTS: filename
+: /home/stephen/txt/computing/emacs/README.org
+
+
+
+
