@@ -60,7 +60,7 @@ https://github.com/magit/magit/issues/4054
 
 The default behaviour for C-x 2 (split-window-below) is to divide a
 window into two, showing the same buffer in each window.  I would
-prefer the two windows to show the most recent two buffers.  Alex Ba
+prefer the two windows to show the most recent two buffers.  Alex Branham
 had solved this problem before
 https://gitlab.com/jabranham/emacs/blob/master/init.el#L2537
 
@@ -81,6 +81,7 @@ If prefix arg is provided, show current buffer twice."
     (other-window 1 nil)
     (if (= prefix 1)
         (switch-to-next-buffer)))
+
 (defun my/split-right-last-buffer (prefix)
   "Split the window left/right and display the previous buffer
 If prefix arg is provided, show current buffer twice."
@@ -94,6 +95,9 @@ If prefix arg is provided, show current buffer twice."
 (setq switch-to-prev-buffer-skip 'this)
 #+end_src
 
+Screenshot:
+
+[[file:splitting-windows.gif]]
 
 * noweb
 
