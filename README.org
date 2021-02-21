@@ -1,5 +1,5 @@
 * Notes about Emacs
-
+  
 ** dired -- Create a dired buffer of files listed on stdin.
 
 
@@ -54,6 +54,46 @@ Example: show all files that are currently registered
 
 *** references
 https://github.com/magit/magit/issues/4054
+
+
+** Alternative C-x 3 and C-x 2
+
+The default behaviour for C-x 2 (split-window-below) is to divide a
+window into two, showing the same buffer in each window.  I would
+prefer the two windows to show the most recent two buffers.  Alex Ba
+had solved this problem before
+https://gitlab.com/jabranham/emacs/blob/master/init.el#L2537
+
+I simply added the extra configuration to switch-to-prev-buffer-skip
+so that if you use C-x 2 or C-x 3 n times, then you see the n+1 recent
+buffers.  Thank you Alex.
+
+
+
+#+begin_src emacs-lisp :tangle no
+;; Split the windows sensibly.
+;; https://gitlab.com/jabranham/emacs/blob/master/init.el#L2537
+(defun my/split-below-last-buffer (prefix)
+    "Split the window above/below and display the previous buffer.
+If prefix arg is provided, show current buffer twice."
+    (interactive "p")
+    (split-window-below)
+    (other-window 1 nil)
+    (if (= prefix 1)
+        (switch-to-next-buffer)))
+(defun my/split-right-last-buffer (prefix)
+  "Split the window left/right and display the previous buffer
+If prefix arg is provided, show current buffer twice."
+  (interactive "p")
+  (split-window-right)
+  (other-window 1 nil)
+  (if (= prefix 1) (switch-to-next-buffer)))
+
+(global-set-key (kbd "C-x 2")  'my/split-below-last-buffer)
+(global-set-key (kbd "C-x 3")  'my/split-right-last-buffer)
+(setq switch-to-prev-buffer-skip 'this)
+#+end_src
+
 
 * noweb
 
