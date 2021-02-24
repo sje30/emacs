@@ -99,6 +99,45 @@ Screenshot:
 
 [[file:splitting-windows.gif]]
 
+
+
+** using pdf-tools via xdg-open
+
+I use mu4e to read email, which opens pdf attachments using
+xdg-open.  So, to get mu4e to open pdfs attachments using pdf-tools, I
+needed to configure xdg-open accordingly.  This required two
+steps:
+
+
+*** Create a pdf-tools.desktop
+
+This file lives in =~/.local/share/applications/pdf-tools.desktop=
+
+
+#+begin_src sh :tangle ~/.local/share/applications/pdf-tools.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.1
+Type=Application
+NoDisplay=true
+Exec=emacsclient %u
+Name=pdf-tools
+Comment=Use Emacs to open pdf files
+#+end_src
+
+#+RESULTS:
+
+*** Tell xdg-mine to use pdf-tools.desktop to read pdfs
+
+#+begin_src sh
+  xdg-mime default pdf-tools.desktop application/pdf
+#+end_src
+
+This updates the list in ~/.config/mimeapps.list
+
+You should then find that =xdg-open file.pdf= opens the file in Emacs.
+
+
 * noweb
 
 Taken from https://www.reddit.com/r/orgmode/comments/kmpfpf/adding_tangle_results_to_tangle_file/
