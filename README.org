@@ -143,7 +143,8 @@ Comment=Use Emacs to open pdf files
 
 This updates the list in ~/.config/mimeapps.list
 
-You should then find that =xdg-open file.pdf= opens the file in Emacs.
+You should then find that =xdg-open file.pdf= opens the file in Emacs,
+and (at least for me), pdf-attachments from mu4e also open in Emacs.
 
 
 * noweb
