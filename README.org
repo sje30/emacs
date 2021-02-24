@@ -104,7 +104,7 @@ Screenshot:
 ** using pdf-tools via xdg-open
 
 I use mu4e to read email, which opens pdf attachments using
-xdg-open.  So, to get mu4e to open pdfs attachments using pdf-tools, I
+xdg-open.  So, to get mu4e to open pdfs attachments using [[https://github.com/politza/pdf-tools][pdf-tools]], I
 needed to configure xdg-open accordingly.  This required two
 steps, below.  I also use the following setting in mu4e:
 
