@@ -106,7 +106,15 @@ Screenshot:
 I use mu4e to read email, which opens pdf attachments using
 xdg-open.  So, to get mu4e to open pdfs attachments using pdf-tools, I
 needed to configure xdg-open accordingly.  This required two
-steps:
+steps, below.  I also use the following setting in mu4e:
+
+
+#+begin_src emacs-lisp :tangle no
+(setq mu4e-view-use-gnus t)
+#end_src
+
+
+
 
 
 *** Create a pdf-tools.desktop
