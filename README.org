@@ -111,7 +111,7 @@ steps, below.  I also use the following setting in mu4e:
 
 #+begin_src emacs-lisp :tangle no
 (setq mu4e-view-use-gnus t)
-#end_src
+#+end_src
 
 
 
