@@ -142,6 +142,12 @@ You should then find that =xdg-open file.pdf= opens the file in Emacs,
 and (at least for me), pdf-attachments from mu4e also open in Emacs.
 
 
+** mu4e-view-save-all-attachments
+
+[mu4e-view-save-all-attachments.el](mu4e-view-save-all-attachments.el)
+is a script for mu4e 1.6.x onwards to save all attachments from the
+article buffer.
+
 * noweb
 
 Taken from https://www.reddit.com/r/orgmode/comments/kmpfpf/adding_tangle_results_to_tangle_file/
