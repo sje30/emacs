@@ -144,8 +144,7 @@ and (at least for me), pdf-attachments from mu4e also open in Emacs.
 
 ** mu4e-view-save-all-attachments
 
-[mu4e-view-save-all-attachments.el](mu4e-view-save-all-attachments.el)
-is a script for mu4e 1.6.x onwards to save all attachments from the
+[[mu4e-view-save-all-attachments.el][mu4e-view-save-all-attachments.el]] is a script for mu4e 1.6.x onwards to save all attachments from the
 article buffer.
 
 * noweb
