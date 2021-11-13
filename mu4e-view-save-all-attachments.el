@@ -7,6 +7,10 @@
 ;; code for reading mu4e messages.
 ;; https://gist.github.com/philjackson/aecfab1706f05079aec7000e328fd183
 
+;; Suggested keybinding
+;;  mnemnonic: > is to redirect the files to output everything.
+;; (define-key mu4e-view-mode-map ">" 'mu4e-view-save-all-attachments)
+
 (defvar bulk-saved-attachments-dir mu4e-attachment-dir)
 
 
@@ -51,8 +55,6 @@
 					     (expand-file-name f dir)))))
       (mu4e-message "No attached files found"))))
 
-;;;  mnemnonic: > is to redirect the files to output everything.
-(define-key mu4e-view-mode-map ">" 'mu4e-view-save-all-attachments)
 
 
 (defun sje-next-free (file)
