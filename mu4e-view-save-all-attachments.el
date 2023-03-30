@@ -21,7 +21,7 @@
    (downcase sub)))
 
 (defun mu4e-view-save-all-attachments (&optional arg)
-  "Save all MIME parts from current mu4e gnus view buffer."
+  "Save all MIME parts from currsent mu4e gnus view buffer."
   ;; Copied from mu4e-view-save-attachments
   (interactive "P")
   (cl-assert (and (eq major-mode 'mu4e-view-mode)
@@ -29,7 +29,7 @@
   (let* ((msg (mu4e-message-at-point))
          (id (cleanse-subject (mu4e-message-field msg :subject)))
          (attachdir (concat bulk-saved-attachments-dir "/" id))
-	 (parts (mu4e~view-gather-mime-parts))
+	 (parts (mu4e--view-gather-mime-parts))
          (handles '())
          (files '())
          dir)
